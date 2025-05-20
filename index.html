@@ -23,7 +23,7 @@
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-6 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-10">
+    <form action="TU_ENDPOINT_DE_FORMSPREE" method="POST" class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-10">
 
         <header class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-2">HOJA DE PEDIDO – Sweet Art</h1>
@@ -35,23 +35,23 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="localName" class="block text-sm font-medium text-gray-700">Nombre del local:</label>
-                    <input type="text" id="localName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <input type="text" id="localName" name="nombre_local" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                 </div>
                 <div>
                     <label for="contactPerson" class="block text-sm font-medium text-gray-700">Responsable de contacto:</label>
-                    <input type="text" id="contactPerson" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <input type="text" id="contactPerson" name="responsable_contacto" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                 </div>
                 <div>
                     <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono:</label>
-                    <input type="tel" id="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <input type="tel" id="phone" name="telefono" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
-                    <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                 </div>
                 <div class="sm:col-span-2">
                     <label for="deliveryAddress" class="block text-sm font-medium text-gray-700">Dirección de entrega:</label>
-                    <input type="text" id="deliveryAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <input type="text" id="deliveryAddress" name="direccion_entrega" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                 </div>
             </div>
         </section>
@@ -74,10 +74,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Budín de Limón</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1200g – 10 porciones</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_budin_limon" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_budin_limon" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -85,10 +85,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Budín Marmolado Proteico</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1200g – 10 porciones</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_budin_marmolado" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_budin_marmolado" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -96,10 +96,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Carrot Cake</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1350g – 10 porciones</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_carrot_cake" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_carrot_cake" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -107,10 +107,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cookies Proteicas con Chips</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pack x20 de 70g</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_cookies_proteicas" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_cookies_proteicas" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -118,10 +118,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cheesecake de Frutos Rojos</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1500g – 8 porciones</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_cheesecake" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_cheesecake" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -129,10 +129,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Red Velvet Cookies</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pack x20 (60g o 120g)</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_red_velvet" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_red_velvet" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -140,10 +140,10 @@
                             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">New York Chips Cookies</td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pack x20 (100–120g)</td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="0" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" step="0.01" value="0" name="precio_ny_chips" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
+                                <input type="number" value="0" min="0" name="cantidad_ny_chips" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
                         </tr>
@@ -158,14 +158,18 @@
             </div>
         </section>
 
+        <div class="text-center mt-8">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                Enviar Pedido
+            </button>
+        </div>
+
         <footer class="text-center mt-8 p-4 bg-gray-50 rounded-lg text-gray-700 text-sm sm:text-base shadow-sm">
             <p class="mb-2">Todos los productos se entregan congelados y listos para servir.</p>
             <p class="mb-2">Por favor, enviá tu pedido completo antes del <span class="font-bold">lunes a las 13 hs</span> para asegurarte disponibilidad en la entrega del jueves.</p>
             <p class="font-semibold">📧 Consultas o pedidos: <a href="mailto:contacto.sweetart@gmail.com" class="text-blue-600 hover:underline">contacto.sweetart@gmail.com</a></p>
         </footer>
-    </div>
-
-    <script>
+    </form> <script>
         // Espera a que el DOM esté completamente cargado antes de ejecutar el script
         document.addEventListener('DOMContentLoaded', function() {
             // Selecciona todos los inputs de precio y cantidad
