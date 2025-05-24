@@ -267,23 +267,53 @@
                 <!-- Sección de Cálculo de Seña -->
                 <div class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Confirmación de Pedido</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="totalPedido" class="block text-sm font-medium text-gray-700 mb-1">Precio total del pedido</label>
-                            <div class="relative rounded-md shadow-sm">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span class="text-gray-500 sm:text-sm">$</span>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="totalPedido" class="block text-sm font-medium text-gray-700 mb-1">Precio total del pedido</label>
+                                <div class="relative rounded-md shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <span class="text-gray-500 sm:text-sm">$</span>
+                                    </div>
+                                    <input type="number" id="totalPedido" name="total_pedido" class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-7 pr-12 py-3 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" min="0" step="0.01" required>
                                 </div>
-                                <input type="number" id="totalPedido" name="total_pedido" class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-7 pr-12 py-3 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" min="0" step="0.01" required>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <p class="text-sm text-gray-600 mb-2">Para confirmar tu pedido, realizá una seña del <span class="font-semibold">33%</span>:</p>
+                                <div id="seniaContainer" class="hidden">
+                                    <p class="text-xl font-bold text-pink-600">$<span id="montoSenia">0.00</span></p>
+                                    <p class="mt-1 text-xs text-gray-500">Este monto equivale al 33% del total del pedido.</p>
+                                </div>
+                                <div id="seniaPlaceholder" class="text-sm text-gray-400 italic">Ingresa el total para ver el monto de la seña</div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg border border-gray-200">
-                            <p class="text-sm text-gray-600 mb-2">Para confirmar tu pedido, realizá una seña del <span class="font-semibold">33%</span>:</p>
-                            <div id="seniaContainer" class="hidden">
-                                <p class="text-xl font-bold text-pink-600">$<span id="montoSenia">0.00</span></p>
-                                <p class="mt-2 text-xs text-gray-500">Este monto equivale al 33% del total del pedido.</p>
+                        
+                        <!-- Sección del Código QR -->
+                        <div id="qrCodeContainer" class="hidden bg-white p-6 rounded-lg border border-gray-200 text-center">
+                            <h4 class="text-md font-medium text-gray-800 mb-3">Pago de la seña</h4>
+                            <div id="qrCode" class="flex justify-center mb-4"></div>
+                            <p class="text-sm text-gray-600 mb-4">Escaneá este código para pagar tu seña de <span class="font-semibold">$<span id="qrMonto">0.00</span></span></p>
+                            
+                            <!-- Campo para subir comprobante -->
+                            <div class="mt-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Subí el comprobante de pago</label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                    <div class="space-y-1 text-center">
+                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="flex text-sm text-gray-600">
+                                            <label for="comprobante" class="relative cursor-pointer bg-white rounded-md font-medium text-pink-600 hover:text-pink-500 focus-within:outline-none">
+                                                <span>Subir archivo</span>
+                                                <input id="comprobante" name="comprobante" type="file" class="sr-only" accept="image/*,.pdf" required>
+                                            </label>
+                                            <p class="pl-1">o arrastrá y soltá</p>
+                                        </div>
+                                        <p class="text-xs text-gray-500">PNG, JPG, PDF hasta 10MB</p>
+                                    </div>
+                                </div>
+                                <p id="comprobanteNombre" class="mt-1 text-sm text-green-600 hidden"></p>
                             </div>
-                            <div id="seniaPlaceholder" class="text-sm text-gray-400 italic">Ingresa el total para ver el monto de la seña</div>
                         </div>
                     </div>
                 </div>
@@ -332,7 +362,10 @@
         </footer>
     </form>
 
+    <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
     <script>
+        let qrCode = null; // Variable para almacenar la instancia del QR
+        
         // Función para formatear números con separadores de miles
         function formatNumber(number) {
             return new Intl.NumberFormat('es-AR', {
@@ -352,16 +385,22 @@
             if (totalPedido > 0) {
                 // Calcular el 33% del total
                 const senia = totalPedido * 0.33;
-                montoSenia.textContent = formatNumber(senia);
+                const formattedSenia = formatNumber(senia);
+                montoSenia.textContent = formattedSenia;
                 
                 // Mostrar el monto de la seña
                 seniaContainer.classList.remove('hidden');
                 seniaPlaceholder.classList.add('hidden');
                 
-                // Habilitar el botón de envío
-                submitButton.disabled = false;
-                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
-                submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                // Mostrar el QR
+                document.getElementById('qrMonto').textContent = formattedSenia;
+                generateQRCode(senia);
+                document.getElementById('qrCodeContainer').classList.remove('hidden');
+                
+                // Deshabilitar el botón de envío hasta que se suba un comprobante
+                submitButton.disabled = true;
+                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
                 
                 // Ocultar mensaje de error si existe
                 const errorDiv = document.getElementById('formError');
@@ -374,6 +413,60 @@
                 seniaPlaceholder.classList.remove('hidden');
                 
                 // Deshabilitar el botón de envío
+                submitButton.disabled = true;
+                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            }
+        });
+
+        // Validar el formulario antes de enviar
+        // Función para generar el código QR
+        function generateQRCode(amount) {
+            // Limpiar el contenedor del QR
+            document.getElementById('qrCode').innerHTML = '';
+            
+            // Crear la URL de pago con el monto
+            const paymentUrl = `https://oneinfinite.link/qr?monto=${amount}&descripcion=Pedido%20SweetArt%20Seña%20${amount}`;
+            
+            // Generar el código QR
+            qrCode = new QRCode(document.getElementById('qrCode'), {
+                text: paymentUrl,
+                width: 180,
+                height: 180,
+                colorDark: '#4B5563',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Manejar la subida del comprobante
+        document.getElementById('comprobante').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const comprobanteNombre = document.getElementById('comprobanteNombre');
+            const submitButton = document.getElementById('submitButton');
+            
+            if (file) {
+                // Validar tamaño del archivo (máximo 10MB)
+                const maxSize = 10 * 1024 * 1024; // 10MB en bytes
+                if (file.size > maxSize) {
+                    comprobanteNombre.textContent = 'El archivo es demasiado grande (máx. 10MB)';
+                    comprobanteNombre.classList.remove('text-green-600');
+                    comprobanteNombre.classList.add('text-red-600');
+                    submitButton.disabled = true;
+                    return;
+                }
+                
+                // Mostrar nombre del archivo
+                comprobanteNombre.textContent = `Archivo subido: ${file.name}`;
+                comprobanteNombre.classList.remove('hidden', 'text-red-600');
+                comprobanteNombre.classList.add('text-green-600');
+                
+                // Habilitar el botón de envío
+                submitButton.disabled = false;
+                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+            } else {
+                comprobanteNombre.classList.add('hidden');
                 submitButton.disabled = true;
                 submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
                 submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
