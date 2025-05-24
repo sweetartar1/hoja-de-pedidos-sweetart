@@ -289,30 +289,51 @@
                         </div>
                         
                         <!-- Sección del Código QR -->
-                        <div id="qrCodeContainer" class="hidden bg-white p-6 rounded-lg border border-gray-200 text-center">
-                            <h4 class="text-md font-medium text-gray-800 mb-3">Pago de la seña</h4>
-                            <div id="qrCode" class="flex justify-center mb-4"></div>
-                            <p class="text-sm text-gray-600 mb-4">Escaneá este código para pagar tu seña de <span class="font-semibold">$<span id="qrMonto">0.00</span></span></p>
+                        <div id="qrCodeContainer" class="hidden bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="text-center text-lg font-medium text-gray-800 mb-4">Pago de la seña</h4>
+                            
+                            <!-- QR Code Container -->
+                            <div class="flex flex-col items-center justify-center mb-6">
+                                <p class="text-center mb-4 text-pink-700 font-medium">
+                                    <span class="text-2xl">🧁✨</span><br>
+                                    <span class="text-lg">¡Ya casi es tuyo!</span><br>
+                                    <span class="text-sm font-normal">
+                                        Para confirmar tu pedido, realizá la seña del 33% escaneando el QR que aparece abajo.<br>
+                                        Una vez realizado el pago, subí el comprobante y enviá el formulario.
+                                    </span>
+                                </p>
+                                <div id="qrCode" class="p-4 border border-gray-200 rounded-lg bg-white shadow-sm" style="width: 220px; height: 220px; display: flex; align-items: center; justify-content: center;">
+                                    <!-- QR code will be inserted here by JavaScript -->
+                                </div>
+                                <p class="mt-4 text-sm text-gray-600">
+                                    Monto de la seña: 
+                                    <span class="font-bold text-pink-600">$<span id="qrMonto">0.00</span></span>
+                                </p>
+                            </div>
                             
                             <!-- Campo para subir comprobante -->
-                            <div class="mt-4">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Subí el comprobante de pago</label>
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="mt-6 border-t border-gray-200 pt-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-3">
+                                    📎 Subí el comprobante de la seña:
+                                </label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-lg">
                                     <div class="space-y-1 text-center">
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <div class="flex text-sm text-gray-600">
-                                            <label for="comprobante" class="relative cursor-pointer bg-white rounded-md font-medium text-pink-600 hover:text-pink-500 focus-within:outline-none">
-                                                <span>Subir archivo</span>
+                                        <div class="flex justify-center text-sm text-gray-600">
+                                            <label for="comprobante" class="relative cursor-pointer rounded-md font-medium text-pink-600 hover:text-pink-500 focus-within:outline-none">
+                                                <span>Haz clic para subir</span>
                                                 <input id="comprobante" name="comprobante" type="file" class="sr-only" accept="image/*,.pdf" required>
                                             </label>
-                                            <p class="pl-1">o arrastrá y soltá</p>
+                                            <p class="pl-1">o arrastra y suelta</p>
                                         </div>
-                                        <p class="text-xs text-gray-500">PNG, JPG, PDF hasta 10MB</p>
+                                        <p class="text-xs text-gray-500">
+                                            Formatos aceptados: PNG, JPG, PDF (hasta 10MB)
+                                        </p>
                                     </div>
                                 </div>
-                                <p id="comprobanteNombre" class="mt-1 text-sm text-green-600 hidden"></p>
+                                <p id="comprobanteNombre" class="mt-2 text-sm text-green-600 text-center"></p>
                             </div>
                         </div>
                     </div>
@@ -423,13 +444,23 @@
         // Función para generar el código QR
         function generateQRCode(amount) {
             // Limpiar el contenedor del QR
-            document.getElementById('qrCode').innerHTML = '';
+            const qrContainer = document.getElementById('qrCode');
+            qrContainer.innerHTML = '';
             
             // Crear la URL de pago con el monto
             const paymentUrl = `https://oneinfinite.link/qr?monto=${amount}&descripcion=Pedido%20SweetArt%20Seña%20${amount}`;
             
+            // Crear un contenedor interno para el QR
+            const qrInner = document.createElement('div');
+            qrInner.style.width = '200px';
+            qrInner.style.height = '200px';
+            qrInner.style.display = 'flex';
+            qrInner.style.alignItems = 'center';
+            qrInner.style.justifyContent = 'center';
+            qrContainer.appendChild(qrInner);
+            
             // Generar el código QR
-            qrCode = new QRCode(document.getElementById('qrCode'), {
+            qrCode = new QRCode(qrInner, {
                 text: paymentUrl,
                 width: 180,
                 height: 180,
@@ -437,13 +468,56 @@
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
             });
+            
+            // Agregar un pequeño margen alrededor del QR
+            const img = qrContainer.querySelector('img');
+            if (img) {
+                img.style.padding = '10px';
+                img.style.borderRadius = '8px';
+                img.style.border = '1px solid #e5e7eb';
+                // Notificar que el QR se generó correctamente
+                onQRGenerated();
+            }
         }
 
+        // Variables para rastrear el estado del formulario
+        let isTotalValid = false;
+        let isQRGenerated = false;
+        let isReceiptUploaded = false;
+        
+        // Función para actualizar el estado del botón de envío
+        function updateSubmitButton() {
+            const submitButton = document.getElementById('submitButton');
+            const isFormValid = isTotalValid && isQRGenerated && isReceiptUploaded;
+            
+            if (isFormValid) {
+                submitButton.disabled = false;
+                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+            } else {
+                submitButton.disabled = true;
+                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            }
+        }
+        
+        // Escuchar cambios en el monto total
+        document.getElementById('totalPedido').addEventListener('input', function(e) {
+            isTotalValid = parseFloat(e.target.value) > 0;
+            isQRGenerated = false; // Resetear cuando cambia el total
+            updateSubmitButton();
+        });
+        
+        // Actualizar cuando se genera el QR
+        function onQRGenerated() {
+            isQRGenerated = true;
+            updateSubmitButton();
+        }
+        
         // Manejar la subida del comprobante
         document.getElementById('comprobante').addEventListener('change', function(e) {
             const file = e.target.files[0];
             const comprobanteNombre = document.getElementById('comprobanteNombre');
-            const submitButton = document.getElementById('submitButton');
             
             if (file) {
                 // Validar tamaño del archivo (máximo 10MB)
@@ -452,25 +526,22 @@
                     comprobanteNombre.textContent = 'El archivo es demasiado grande (máx. 10MB)';
                     comprobanteNombre.classList.remove('text-green-600');
                     comprobanteNombre.classList.add('text-red-600');
-                    submitButton.disabled = true;
+                    isReceiptUploaded = false;
+                    updateSubmitButton();
                     return;
                 }
                 
                 // Mostrar nombre del archivo
                 comprobanteNombre.textContent = `Archivo subido: ${file.name}`;
-                comprobanteNombre.classList.remove('hidden', 'text-red-600');
+                comprobanteNombre.classList.remove('text-red-600');
                 comprobanteNombre.classList.add('text-green-600');
-                
-                // Habilitar el botón de envío
-                submitButton.disabled = false;
-                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
-                submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                isReceiptUploaded = true;
             } else {
-                comprobanteNombre.classList.add('hidden');
-                submitButton.disabled = true;
-                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+                comprobanteNombre.textContent = '';
+                isReceiptUploaded = false;
             }
+            
+            updateSubmitButton();
         });
 
         // Validar el formulario antes de enviar
