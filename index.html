@@ -376,16 +376,19 @@
             </button>
         </div>
 
-        <footer class="text-center mt-8 p-4 bg-gray-50 rounded-lg text-gray-700 text-sm sm:text-base shadow-sm">
-            <p class="mb-2">Todos los productos se entregan congelados y listos para servir.</p>
+        <footer class="mt-8 text-center text-sm text-gray-600">
             <p class="mb-2">Por favor, enviá tu pedido completo antes del <span class="font-bold">lunes a las 13 hs</span> para asegurarte disponibilidad en la entrega del jueves.</p>
             <p class="font-semibold">📧 Consultas o pedidos: <a href="mailto:contacto.sweetart@gmail.com" class="text-blue-600 hover:underline">contacto.sweetart@gmail.com</a></p>
         </footer>
-    </form>
-
-    <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
-    <script>
-        let qrCode = null; // Variable para almacenar la instancia del QR
+        
+        <!-- Mensaje de confirmación (oculto inicialmente) -->
+        <div id="confirmacionPedido" class="hidden bg-pink-50 border border-pink-200 rounded-lg p-6 mt-8 text-center">
+            <h2 class="text-2xl font-bold text-orange-700 mb-4">🎉 ¡Gracias por tu pedido!</h2>
+            <div class="space-y-2 text-gray-700">
+                <p>En breve te vamos a estar escribiendo por WhatsApp para coordinar la entrega 💌</p>
+                <p>Si tenés alguna duda, podés comunicarte directamente con nosotros.</p>
+            </div>
+        </div>
         
         // Función para formatear números con separadores de miles
         function formatNumber(number) {
@@ -544,8 +547,41 @@
             updateSubmitButton();
         });
 
+        // Función para resetear el formulario
+        function resetForm() {
+            const form = document.querySelector('form');
+            form.reset();
+            
+            // Resetear estados
+            isTotalValid = false;
+            isQRGenerated = false;
+            isReceiptUploaded = false;
+            
+            // Ocultar QR y mensajes
+            document.getElementById('qrCodeContainer').classList.add('hidden');
+            document.getElementById('qrCode').innerHTML = '';
+            document.getElementById('comprobanteNombre').textContent = '';
+            document.getElementById('comprobanteNombre').classList.add('hidden');
+            
+            // Actualizar botón
+            updateSubmitButton();
+        }
+        
+        // Función para mostrar la confirmación
+        function showConfirmation() {
+            // Ocultar el formulario
+            document.querySelector('form').style.display = 'none';
+            // Mostrar mensaje de confirmación
+            const confirmacion = document.getElementById('confirmacionPedido');
+            confirmacion.classList.remove('hidden');
+            // Hacer scroll al mensaje de confirmación
+            confirmacion.scrollIntoView({ behavior: 'smooth' });
+        }
+
         // Validar el formulario antes de enviar
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Prevenir envío por defecto
+            
             const totalPedido = parseFloat(document.getElementById('totalPedido').value) || 0;
             const seniaCalculada = totalPedido * 0.33;
             const errorDiv = document.getElementById('formError');
@@ -573,17 +609,32 @@
             }
             
             if (!isValid) {
-                e.preventDefault();
                 errorDiv.classList.remove('hidden');
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
-            } else {
-                // Aquí podrías agregar lógica adicional antes de enviar el formulario
-                console.log('Formulario válido, enviando...');
+                return;
+            }
+            
+            // Aquí iría el envío real del formulario
+            try {
+                // Simular envío del formulario
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Mostrar confirmación
+                showConfirmation();
+                
+                // Opcional: Resetear el formulario después de mostrar la confirmación
+                // resetForm(); // Descomentar si quieres resetear el formulario después de mostrar la confirmación
+                
+                console.log('Formulario enviado correctamente');
                 console.log('Total del pedido:', formatNumber(totalPedido));
                 console.log('Seña (33%):', formatNumber(seniaCalculada));
+                
+            } catch (error) {
+                console.error('Error al enviar el formulario:', error);
+                alert('Ocurrió un error al enviar el formulario. Por favor, inténtalo de nuevo.');
             }
         });
     </script> <script>
