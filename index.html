@@ -32,6 +32,264 @@
             <p class="text-md sm:text-lg text-gray-600">Pedidos semanales | Se reciben los lunes | Entrega congelada los jueves</p>
         </header>
 
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                Nuestros Productos
+            </h2>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gradient-to-r from-pink-50 to-purple-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Producto</th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Formato</th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Precio</th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Cantidad</th>
+                                <th scope="col" class="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider">Total</th>
+                            </tr>
+                        </thead>
+                    <tbody id="productTableBody" class="bg-white divide-y divide-gray-100">
+                        <tr data-product-id="1" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Budín de Limón</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">1200g – 10 porciones</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="500" name="precio_budin_limon" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-pink-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_budin_limon" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                        <tr data-product-id="2" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Budín Marmolado Proteico</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">1200g – 10 porciones</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="15000" name="precio_budin_marmolado" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-purple-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_budin_marmolado" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                        <tr data-product-id="3" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Carrot Cake</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">1350g – 10 porciones</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="18000" name="precio_carrot_cake" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-orange-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_carrot_cake" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-orange-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                        <tr data-product-id="4" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Cookies Proteicas con Chips</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">Pack x20 de 70g</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="22000" name="precio_cookies_proteicas" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_cookies_proteicas" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                        <tr data-product-id="5" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Cheesecake de Frutos Rojos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">1500g – 8 porciones</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="22000" name="precio_cheesecake" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-red-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_cheesecake" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                        <tr data-product-id="6" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Red Velvet Cookies</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">Pack x20 (60g o 120g)</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="22000" name="precio_red_velvet" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-pink-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_red_velvet" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                        <tr data-product-id="7" class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center">
+                                        <svg class="h-6 w-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">New York Chips Cookies</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">Pack x20 (100–120g)</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="relative">
+                                    <input type="number" step="0.01" value="19000" name="precio_ny_chips" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-yellow-500 focus:border-transparent" readonly>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="number" value="0" min="0" name="cantidad_ny_chips" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-150 ease-in-out">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-gradient-to-r from-pink-50 to-purple-50">
+                            <td colspan="4" class="px-6 py-4 text-right text-base font-semibold text-gray-700 uppercase tracking-wider">
+                                <div class="flex items-center justify-end">
+                                    <svg class="w-5 h-5 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    TOTAL GENERAL DEL PEDIDO
+                                </div>
+                            </td>
+                            <td id="grandTotal" class="px-6 py-4 text-right text-lg font-bold text-pink-600">$0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                
+                <!-- Sección de Cálculo de Seña -->
+                <div class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Confirmación de Pedido</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="totalPedido" class="block text-sm font-medium text-gray-700 mb-1">Precio total del pedido</label>
+                            <div class="relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <span class="text-gray-500 sm:text-sm">$</span>
+                                </div>
+                                <input type="number" id="totalPedido" name="total_pedido" class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-7 pr-12 py-3 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <p class="text-sm text-gray-600 mb-2">Para confirmar tu pedido, realizá una seña del <span class="font-semibold">33%</span>:</p>
+                            <div id="seniaContainer" class="hidden">
+                                <p class="text-xl font-bold text-pink-600">$<span id="montoSenia">0.00</span></p>
+                                <p class="mt-2 text-xs text-gray-500">Este monto equivale al 33% del total del pedido.</p>
+                            </div>
+                            <div id="seniaPlaceholder" class="text-sm text-gray-400 italic">Ingresa el total para ver el monto de la seña</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="mb-8 p-4 bg-blue-50 rounded-lg shadow-sm">
             <h2 class="text-xl sm:text-2xl font-semibold text-blue-800 mb-4">👤 Datos del Cliente</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -58,110 +316,11 @@
             </div>
         </section>
 
-        <section class="mb-8">
-            <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">🧁 Productos Disponibles</h2>
-            <div class="overflow-x-auto rounded-lg shadow-md">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Producto</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Formato</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24">Precio unitario</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-20">Cantidad</th>
-                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productTableBody" class="bg-white divide-y divide-gray-200">
-                        <tr data-product-id="1">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Budín de Limón</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1200g – 10 porciones</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="500" name="precio_budin_limon" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_budin_limon" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                        <tr data-product-id="2">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Budín Marmolado Proteico</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1200g – 10 porciones</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="15000" name="precio_budin_marmolado" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_budin_marmolado" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                        <tr data-product-id="3">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Carrot Cake</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1350g – 10 porciones</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="18000" name="precio_carrot_cake" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_carrot_cake" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                        <tr data-product-id="4">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cookies Proteicas con Chips</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pack x20 de 70g</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="22000" name="precio_cookies_proteicas" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_cookies_proteicas" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                        <tr data-product-id="5">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cheesecake de Frutos Rojos</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">1500g – 8 porciones</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="22000" name="precio_cheesecake" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_cheesecake" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                        <tr data-product-id="6">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Red Velvet Cookies</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pack x20 (60g o 120g)</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="22000" name="precio_red_velvet" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_red_velvet" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                        <tr data-product-id="7">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">New York Chips Cookies</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">Pack x20 (100–120g)</td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" step="0.01" value="19000" name="precio_ny_chips" class="price-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right" readonly>
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_ny_chips" class="quantity-input w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-1 text-sm text-right">
-                            </td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 total-cell text-right">$0.00</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr class="bg-gray-50">
-                            <td colspan="4" class="px-4 py-3 text-right text-base font-semibold text-gray-800 uppercase tracking-wider">TOTAL GENERAL DEL PEDIDO</td>
-                            <td id="grandTotal" class="px-4 py-3 text-right text-base font-bold text-gray-900">$0.00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </section>
-
         <div class="text-center mt-8">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            <div id="formError" class="hidden mb-4 p-3 bg-red-50 text-red-700 rounded-lg">
+                <p>Por favor, completa todos los campos requeridos y verifica el monto de la seña.</p>
+            </div>
+            <button type="submit" id="submitButton" disabled class="bg-gray-400 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out cursor-not-allowed">
                 Enviar Pedido
             </button>
         </div>
@@ -171,7 +330,99 @@
             <p class="mb-2">Por favor, enviá tu pedido completo antes del <span class="font-bold">lunes a las 13 hs</span> para asegurarte disponibilidad en la entrega del jueves.</p>
             <p class="font-semibold">📧 Consultas o pedidos: <a href="mailto:contacto.sweetart@gmail.com" class="text-blue-600 hover:underline">contacto.sweetart@gmail.com</a></p>
         </footer>
-    </form> <script>
+    </form>
+
+    <script>
+        // Función para formatear números con separadores de miles
+        function formatNumber(number) {
+            return new Intl.NumberFormat('es-AR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(number);
+        }
+
+        // Calcular la seña cuando cambia el total del pedido
+        document.getElementById('totalPedido').addEventListener('input', function(e) {
+            const totalPedido = parseFloat(e.target.value) || 0;
+            const seniaContainer = document.getElementById('seniaContainer');
+            const seniaPlaceholder = document.getElementById('seniaPlaceholder');
+            const montoSenia = document.getElementById('montoSenia');
+            const submitButton = document.getElementById('submitButton');
+            
+            if (totalPedido > 0) {
+                // Calcular el 33% del total
+                const senia = totalPedido * 0.33;
+                montoSenia.textContent = formatNumber(senia);
+                
+                // Mostrar el monto de la seña
+                seniaContainer.classList.remove('hidden');
+                seniaPlaceholder.classList.add('hidden');
+                
+                // Habilitar el botón de envío
+                submitButton.disabled = false;
+                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                
+                // Ocultar mensaje de error si existe
+                const errorDiv = document.getElementById('formError');
+                if (errorDiv) {
+                    errorDiv.classList.add('hidden');
+                }
+            } else {
+                // Ocultar el monto si no hay total válido
+                seniaContainer.classList.add('hidden');
+                seniaPlaceholder.classList.remove('hidden');
+                
+                // Deshabilitar el botón de envío
+                submitButton.disabled = true;
+                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
+                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            }
+        });
+
+        // Validar el formulario antes de enviar
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const totalPedido = parseFloat(document.getElementById('totalPedido').value) || 0;
+            const seniaCalculada = totalPedido * 0.33;
+            const errorDiv = document.getElementById('formError');
+            
+            // Validar que todos los campos requeridos estén completos
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('border-red-500');
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            // Validar que el total del pedido sea mayor a 0
+            if (totalPedido <= 0) {
+                isValid = false;
+                document.getElementById('totalPedido').classList.add('border-red-500');
+                errorDiv.classList.remove('hidden');
+            } else {
+                document.getElementById('totalPedido').classList.remove('border-red-500');
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                errorDiv.classList.remove('hidden');
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Aquí podrías agregar lógica adicional antes de enviar el formulario
+                console.log('Formulario válido, enviando...');
+                console.log('Total del pedido:', formatNumber(totalPedido));
+                console.log('Seña (33%):', formatNumber(seniaCalculada));
+            }
+        });
+    </script> <script>
         // Espera a que el DOM esté completamente cargado antes de ejecutar el script
         document.addEventListener('DOMContentLoaded', function() {
             // Selecciona todos los inputs de precio y cantidad
