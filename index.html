@@ -23,9 +23,12 @@
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-6 md:p-8">
-    <form action="TU_ENDPOINT_DE_FORMSPREE" method="POST" class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-10">
+    <form id="pedidoForm" class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 md:p-10">
 
         <input type="hidden" name="_replyto" value="contacto.sweetart@gmail.com">
+            <input type="hidden" id="itemsPedido" name="items">
+            <input type="hidden" id="totalPedido" name="total">
+            <input type="hidden" id="depositoPedido" name="deposit">
 
         <header class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-2">HOJA DE PEDIDO – Sweet Art</h1>
@@ -69,9 +72,8 @@
                                 <div class="text-sm text-gray-600">1200g – 10 porciones</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="500" name="precio_budin_limon" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-pink-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_budin_limon" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_budin_limon" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -97,9 +99,8 @@
                                 <div class="text-sm text-gray-600">1200g – 10 porciones</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="15000" name="precio_budin_marmolado" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-purple-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_budin_marmolado" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_budin_marmolado" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -122,12 +123,11 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-600">1350g – 10 porciones</div>
+                                <div class="text-sm text-gray-600">1350g – 10 porciones (135g)</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="18000" name="precio_carrot_cake" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-orange-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_carrot_cake" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_carrot_cake" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-orange-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -150,12 +150,11 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-600">Pack x20 de 70g</div>
+                                <div class="text-sm text-gray-600">20 unidades – 70g c/u</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="22000" name="precio_cookies_proteicas" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_cookies_proteicas" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_cookies_proteicas" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -178,12 +177,11 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-600">1500g – 8 porciones</div>
+                                <div class="text-sm text-gray-600">1500g – 8 porciones (187.5g)</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="22000" name="precio_cheesecake" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-red-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_cheesecake" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_cheesecake" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -206,12 +204,11 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-600">Pack x20 (60g o 120g)</div>
+                                <div class="text-sm text-gray-600">Pack 20 unidades – 100g c/u</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="22000" name="precio_red_velvet" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-pink-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_red_velvet" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_red_velvet" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -234,12 +231,11 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-600">Pack x20 (100–120g)</div>
+                                <div class="text-sm text-gray-600">Pack de 20 unidades – 100g c/u</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="19000" name="precio_ny_chips" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-yellow-500 focus:border-transparent" readonly>
-                                </div>
+                                <div class="text-sm font-medium text-gray-900">$500.00</div>
+                                <input type="hidden" name="precio_ny_chips" value="500">
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="number" value="0" min="0" name="cantidad_ny_chips" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-150 ease-in-out">
@@ -269,15 +265,7 @@
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Confirmación de Pedido</h3>
                     <div class="grid grid-cols-1 gap-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="totalPedido" class="block text-sm font-medium text-gray-700 mb-1">Precio total del pedido</label>
-                                <div class="relative rounded-md shadow-sm">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 sm:text-sm">$</span>
-                                    </div>
-                                    <input type="number" id="totalPedido" name="total_pedido" class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-7 pr-12 py-3 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" min="0" step="0.01" required>
-                                </div>
-                            </div>
+                            <input type="hidden" id="totalPedido" name="total_pedido" value="">
                             <div class="bg-white p-4 rounded-lg border border-gray-200">
                                 <p class="text-sm text-gray-600 mb-2">Para confirmar tu pedido, realizá una seña del <span class="font-semibold">33%</span>:</p>
                                 <div id="seniaContainer" class="hidden">
@@ -299,15 +287,27 @@
                                     <span class="text-lg">¡Ya casi es tuyo!</span><br>
                                     <span class="text-sm font-normal">
                                         Para confirmar tu pedido, realizá la seña del 33% escaneando el QR que aparece abajo.<br>
-                                        Una vez realizado el pago, subí el comprobante y enviá el formulario.
+                                        Si deseás adjuntar el comprobante de pago, podés hacerlo en el siguiente paso (opcional).
                                     </span>
                                 </p>
+                                
+                                <!-- Contenedor del estado del pago -->
+                                <div id="estadoPago" class="w-full mb-4">
+                                    <!-- Aquí se mostrarán los mensajes de estado -->
+                                </div>
+                                
                                 <div id="qrCode" class="p-4 border border-gray-200 rounded-lg bg-white shadow-sm" style="width: 220px; height: 220px; display: flex; align-items: center; justify-content: center;">
                                     <!-- QR code will be inserted here by JavaScript -->
                                 </div>
+                                
                                 <p class="mt-4 text-sm text-gray-600">
                                     Monto de la seña: 
                                     <span class="font-bold text-pink-600">$<span id="qrMonto">0.00</span></span>
+                                </p>
+                                
+                                <p class="mt-2 text-xs text-gray-500 text-center">
+                                    Escaneá el código con tu app de billetera virtual<br>
+                                    o banco para realizar el pago.
                                 </p>
                             </div>
                             
@@ -323,8 +323,8 @@
                                         </svg>
                                         <div class="flex justify-center text-sm text-gray-600">
                                             <label for="comprobante" class="relative cursor-pointer rounded-md font-medium text-pink-600 hover:text-pink-500 focus-within:outline-none">
-                                                <span>Haz clic para subir</span>
-                                                <input id="comprobante" name="comprobante" type="file" class="sr-only" accept="image/*,.pdf" required>
+                                                <span>Haz clic para subir (opcional)</span>
+                                                <input id="comprobante" name="comprobante" type="file" class="sr-only" accept="image/*,.pdf">
                                             </label>
                                             <p class="pl-1">o arrastra y suelta</p>
                                         </div>
@@ -353,12 +353,37 @@
                     <input type="text" id="contactPerson" name="responsable_contacto" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                 </div>
                 <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono:</label>
-                    <input type="tel" id="phone" name="telefono" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono (comenzando con 11):</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="telefono" 
+                        pattern="11[0-9]{8}"
+                        inputmode="numeric"
+                        maxlength="10"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2"
+                        placeholder="Ej: 1122334455"
+                        required
+                    >
+                    <p id="telefonoError" class="mt-1 text-sm text-red-600 hidden">
+                        El teléfono debe comenzar con 11 y tener 10 dígitos.
+                    </p>
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2"
+                        placeholder="ejemplo@dominio.com"
+                        required
+                    >
+                    <p id="emailError" class="mt-1 text-sm text-red-600 hidden">
+                        Por favor ingresa un email válido.
+                    </p>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="deliveryAddress" class="block text-sm font-medium text-gray-700">Dirección de entrega:</label>
@@ -381,317 +406,570 @@
             <p class="font-semibold">📧 Consultas o pedidos: <a href="mailto:contacto.sweetart@gmail.com" class="text-blue-600 hover:underline">contacto.sweetart@gmail.com</a></p>
         </footer>
         
-        <!-- Mensaje de confirmación (oculto inicialmente) -->
-        <div id="confirmacionPedido" class="hidden bg-pink-50 border border-pink-200 rounded-lg p-6 mt-8 text-center">
-            <h2 class="text-2xl font-bold text-orange-700 mb-4">🎉 ¡Gracias por tu pedido!</h2>
-            <div class="space-y-2 text-gray-700">
-                <p>En breve te vamos a estar escribiendo por WhatsApp para coordinar la entrega 💌</p>
-                <p>Si tenés alguna duda, podés comunicarte directamente con nosotros.</p>
+        <!-- Modal de Confirmación -->
+        <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                        <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Pedido Recibido!</h3>
+                    <div class="mb-6 text-gray-600">
+                        <p class="mb-2">Gracias por tu pedido en <span class="font-semibold text-pink-600">Sweet Art</span>.</p>
+                        <p class="mb-4">Hemos recibido tu pedido correctamente y estamos procesando la información.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 text-left">
+                            <p class="font-medium text-blue-800 mb-1">Próximos pasos:</p>
+                            <ol class="list-decimal list-inside text-sm space-y-1 text-blue-700">
+                                <li>Revisaremos los detalles de tu pedido</li>
+                                <li>Te contactaremos para confirmar disponibilidad</li>
+                                <li>Prepararemos todo para la entrega del jueves</li>
+                            </ol>
+                        </div>
+                        <p class="mt-4 text-sm">Ante cualquier consulta, no dudes en escribirnos a <a href="mailto:contacto.sweetart@gmail.com" class="text-blue-600 hover:underline">contacto.sweetart@gmail.com</a></p>
+                    </div>
+                    <button onclick="document.getElementById('confirmationModal').classList.add('hidden')" class="w-full bg-pink-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-700 transition duration-200">
+                        Entendido
+                    </button>
+                </div>
             </div>
         </div>
+
+</body>
+</html>
+
+    <!-- Incluir la biblioteca QRCode.js -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    
+    <script>
+        // Configuración de Oneinfinite
+        const ONI_API_KEY = 'yjTl7teoZd1hFpCUjv'; // API Key proporcionada
+        const ONI_API_SECRET = 'F7NEoAKeb3xHHKPpbbs5'; // API Secret proporcionado
+        const ONI_MERCHANT_ID = 'TU_MERCHANT_ID'; // Necesitamos obtener este valor (te explico abajo)
+        const ONI_CALLBACK_URL = window.location.origin + '/confirmacion-pago.html'; // URL de callback automática
         
-        // Función para formatear números con separadores de miles
-        function formatNumber(number) {
-            return new Intl.NumberFormat('es-AR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }).format(number);
-        }
-
-        // Calcular la seña cuando cambia el total del pedido
-        document.getElementById('totalPedido').addEventListener('input', function(e) {
-            const totalPedido = parseFloat(e.target.value) || 0;
-            const seniaContainer = document.getElementById('seniaContainer');
-            const seniaPlaceholder = document.getElementById('seniaPlaceholder');
-            const montoSenia = document.getElementById('montoSenia');
-            const submitButton = document.getElementById('submitButton');
+        // Esperar a que el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', function() {
             
-            if (totalPedido > 0) {
-                // Calcular el 33% del total
-                const senia = totalPedido * 0.33;
-                const formattedSenia = formatNumber(senia);
-                montoSenia.textContent = formattedSenia;
-                
-                // Mostrar el monto de la seña
-                seniaContainer.classList.remove('hidden');
-                seniaPlaceholder.classList.add('hidden');
-                
-                // Mostrar el QR
-                document.getElementById('qrMonto').textContent = formattedSenia;
-                generateQRCode(senia);
-                document.getElementById('qrCodeContainer').classList.remove('hidden');
-                
-                // Deshabilitar el botón de envío hasta que se suba un comprobante
-                submitButton.disabled = true;
-                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-                
-                // Ocultar mensaje de error si existe
-                const errorDiv = document.getElementById('formError');
-                if (errorDiv) {
-                    errorDiv.classList.add('hidden');
+            // Función para generar el código QR de pago
+            async function generarCodigoPago(monto) {
+                try {
+                    // Validar que el monto sea mayor a cero
+                    if (monto <= 0) {
+                        console.error('El monto debe ser mayor a cero');
+                        return false;
+                    }
+                    
+                    // Crear una referencia única para este pago
+                    const referencia = 'SWEETART_' + Date.now();
+                    
+                    // Datos para la API de Oneinfinite
+                    const paymentData = {
+                        merchantId: ONI_MERCHANT_ID,
+                        amount: monto.toFixed(2), // Asegurar 2 decimales
+                        currency: 'ARS',
+                        reference: referencia,
+                        callbackUrl: ONI_CALLBACK_URL,
+                        description: `Seña del 33% para pedido Sweet Art #${referencia}`,
+                        customerEmail: document.querySelector('input[name="email"]')?.value || ''
+                    };
+                    
+                    // Mostrar mensaje de carga
+                    qrCodeElement.innerHTML = '<p class="text-gray-600">Generando código de pago...</p>';
+                    
+                    // Llamada a la API de Oneinfinite
+                    const response = await fetch('https://api.oneinfinite.io/v1/payments', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${ONI_API_KEY}`,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(paymentData)
+                    });
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || 'Error al generar el pago');
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Verificar que la respuesta contenga la URL del QR
+                    if (!data.qrCodeUrl) {
+                        throw new Error('No se recibió la URL del código QR');
+                    }
+                    
+                    // Guardar la referencia del pago para verificación posterior
+                    currentPaymentReference = referencia;
+                    
+                    // Generar el código QR con la URL proporcionada por Oneinfinite
+                    generarQRCode(data.qrCodeUrl);
+                    
+                    // Iniciar la verificación del estado del pago
+                    //verificarEstadoPago(referencia);
+                    
+                    return true;
+                    
+                } catch (error) {
+                    console.error('Error al generar el código de pago:', error);
+                    qrCodeElement.innerHTML = `
+                        <div class="text-center p-4 text-red-600">
+                            <p>Error al generar el pago:</p>
+                            <p class="text-sm">${error.message || 'Intente nuevamente más tarde'}</p>
+                            <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-pink-100 text-pink-700 rounded hover:bg-pink-200">
+                                Reintentar
+                            </button>
+                        </div>`;
+                    return false;
                 }
-            } else {
-                // Ocultar el monto si no hay total válido
-                seniaContainer.classList.add('hidden');
-                seniaPlaceholder.classList.remove('hidden');
-                
-                // Deshabilitar el botón de envío
-                submitButton.disabled = true;
-                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
             }
-        });
+            
+            // Función para generar el código QR visual
+            function generarQRCode(data) {
+                // Limpiar el contenedor del QR
+                qrCodeElement.innerHTML = '';
+                
+                // Generar el código QR
+                QRCode.toCanvas(qrCodeElement, data, {
+                    width: 200,
+                    margin: 1,
+                    color: {
+                        dark: '#000000',
+                        light: '#ffffff'
+                    }
+                }, function(error) {
+                    if (error) {
+                        console.error('Error al generar el QR:', error);
+                        qrCodeElement.innerHTML = '<p class="text-red-500 text-sm">Error al generar el código QR</p>';
+                    } else {
+                        // Mostrar instrucciones después de generar el QR
+                        const qrContainer = document.getElementById('qrCodeContainer');
+                        if (qrContainer) {
+                            qrContainer.classList.remove('hidden');
+                            qrContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                });
+            }
+            
+            // Función para verificar el estado del pago
+            async function verificarEstadoPago(referencia) {
+                const maxIntentos = 30; // Máximo de intentos (5 minutos aprox.)
+                let intentos = 0;
+                
+                const intervalo = setInterval(async () => {
+                    intentos++;
+                    
+                    try {
+                        const response = await fetch(`https://api.oneinfinite.io/v1/payments/${referencia}`, {
+                            headers: {
+                                'Authorization': `Bearer ${ONI_API_KEY}`,
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Error al verificar el pago');
+                        }
+                        
+                        const data = await response.json();
+                        
+                        if (data.status === 'completed') {
+                            // Pago completado exitosamente
+                            clearInterval(intervalo);
+                            mostrarEstadoPago('¡Pago confirmado!', 'Tu seña ha sido registrada exitosamente.', 'green');
+                            // Habilitar el botón de enviar pedido
+                            const submitButton = document.querySelector('button[type="submit"]');
+                            if (submitButton) {
+                                submitButton.disabled = false;
+                                submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                            }
+                        } else if (data.status === 'expired' || data.status === 'cancelled') {
+                            // Pago expirado o cancelado
+                            clearInterval(intervalo);
+                            mostrarEstadoPago('Pago no procesado', 'El pago ha expirado o fue cancelado. Por favor, genera un nuevo código QR.', 'red');
+                        }
+                        
+                    } catch (error) {
+                        console.error('Error al verificar el pago:', error);
+                    }
+                    
+                    // Detener la verificación después de los intentos máximos
+                    if (intentos >= maxIntentos) {
+                        clearInterval(intervalo);
+                        mostrarEstadoPago('Tiempo agotado', 'No se pudo verificar el pago. Por favor, contacta a soporte.', 'red');
+                    }
+                    
+                }, 10000); // Verificar cada 10 segundos
+                
+                // Función auxiliar para mostrar el estado del pago
+                function mostrarEstadoPago(titulo, mensaje, color) {
+                    const estadoPago = document.getElementById('estadoPago');
+                    if (estadoPago) {
+                        estadoPago.innerHTML = `
+                            <div class="p-4 mb-4 rounded-lg bg-${color}-50 border border-${color}-200">
+                                <h4 class="font-medium text-${color}-800">${titulo}</h4>
+                                <p class="text-sm text-${color}-600">${mensaje}</p>
+                            </div>
+                        `;
+                    }
+                }
+            }
 
-        // Validar el formulario antes de enviar
-        // Función para generar el código QR
-        function generateQRCode(amount) {
-            // Limpiar el contenedor del QR
-            const qrContainer = document.getElementById('qrCode');
-            qrContainer.innerHTML = '';
+            // Función para formatear números con separadores de miles
+            function formatNumber(number) {
+                return new Intl.NumberFormat('es-AR', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(number);
+            }
+
+            // Función para actualizar el total de un producto
+            function actualizarTotalProducto(input) {
+                const row = input.closest('tr');
+                const precioHidden = row.querySelector('input[type="hidden"][name^="precio_"]');
+                const precio = parseFloat(precioHidden ? precioHidden.value : 0);
+                const cantidad = parseInt(input.value) || 0;
+                const total = precio * cantidad;
+                const totalCell = row.querySelector('.total-cell');
+                
+                if (totalCell) {
+                    totalCell.textContent = `$${formatNumber(total)}`;
+                }
+                
+                return total;
+            }
+
+        // Función para calcular el total general del pedido
+        function calcularTotalPedido() {
+            let total = 0;
+            const quantityInputs = document.querySelectorAll('.quantity-input');
             
-            // Crear la URL de pago con el monto
-            const paymentUrl = `https://oneinfinite.link/qr?monto=${amount}&descripcion=Pedido%20SweetArt%20Seña%20${amount}`;
-            
-            // Crear un contenedor interno para el QR
-            const qrInner = document.createElement('div');
-            qrInner.style.width = '200px';
-            qrInner.style.height = '200px';
-            qrInner.style.display = 'flex';
-            qrInner.style.alignItems = 'center';
-            qrInner.style.justifyContent = 'center';
-            qrContainer.appendChild(qrInner);
-            
-            // Generar el código QR
-            qrCode = new QRCode(qrInner, {
-                text: paymentUrl,
-                width: 180,
-                height: 180,
-                colorDark: '#4B5563',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
+            quantityInputs.forEach(input => {
+                const row = input.closest('tr');
+                const precioHidden = row.querySelector('input[type="hidden"][name^="precio_"]');
+                const precio = parseFloat(precioHidden ? precioHidden.value : 0);
+                const cantidad = parseInt(input.value) || 0;
+                total += precio * cantidad;
             });
             
-            // Agregar un pequeño margen alrededor del QR
-            const img = qrContainer.querySelector('img');
-            if (img) {
-                img.style.padding = '10px';
-                img.style.borderRadius = '8px';
-                img.style.border = '1px solid #e5e7eb';
-                // Notificar que el QR se generó correctamente
-                onQRGenerated();
+            return total;
+        }
+
+        // Función para actualizar la interfaz con los totales
+        async function actualizarTotales() {
+            const totalPedido = calcularTotalPedido();
+            const formattedTotal = formatNumber(totalPedido);
+            
+            // Actualizar total general
+            grandTotalElement.textContent = `$${formattedTotal}`;
+            
+            // Actualizar el campo de total del pedido
+            totalPedidoInput.value = totalPedido > 0 ? formattedTotal : '';
+            
+            // Calcular y mostrar la seña (33%)
+            if (totalPedido > 0) {
+                const senia = Math.round(totalPedido * 0.33 * 100) / 100; // Redondear a 2 decimales
+                const formattedSenia = formatNumber(senia);
+                
+                // Mostrar el monto de la seña
+                montoSeniaElement.textContent = formattedSenia;
+                document.getElementById('qrMonto').textContent = formattedSenia;
+                
+                // Mostrar las secciones correspondientes
+                document.getElementById('seniaContainer').classList.remove('hidden');
+                document.getElementById('seniaPlaceholder').classList.add('hidden');
+                
+                // Limpiar estado anterior
+                const estadoPago = document.getElementById('estadoPago');
+                if (estadoPago) {
+                    estadoPago.innerHTML = '';
+                }
+                
+                // Mostrar mensaje de carga
+                const qrCodeElement = document.getElementById('qrCode');
+                if (qrCodeElement) {
+                    qrCodeElement.innerHTML = '<p class="text-gray-500">Generando código de pago...</p>';
+                }
+                
+                // Generar el código QR de pago
+                const qrGenerado = await generarCodigoPago(senia);
+                const qrCodeContainer = document.getElementById('qrCodeContainer');
+                
+                if (qrGenerado) {
+                    qrCodeContainer.classList.remove('hidden');
+                    // Desplazarse suavemente a la sección del QR
+                    qrCodeContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Iniciar la verificación del estado del pago
+                    if (currentPaymentReference) {
+                        verificarEstadoPago(currentPaymentReference);
+                    }
+                } else {
+                    qrCodeContainer.classList.add('hidden');
+                    if (estadoPago) {
+                        estadoPago.innerHTML = `
+                            <div class="p-4 mb-4 rounded-lg bg-red-50 border border-red-200">
+                                <h4 class="font-medium text-red-800">Error</h4>
+                                <p class="text-sm text-red-600">No se pudo generar el código de pago. Intente nuevamente.</p>
+                            </div>
+                        `;
+                    }
+                }
+            } else {
+                // Ocultar las secciones si no hay total válido
+                document.getElementById('seniaContainer').classList.add('hidden');
+                document.getElementById('seniaPlaceholder').classList.remove('hidden');
+                document.getElementById('qrCodeContainer').classList.add('hidden');
             }
         }
 
-        // Variables para rastrear el estado del formulario
-        let isTotalValid = false;
-        let isQRGenerated = false;
-        let isReceiptUploaded = false;
-        
-        // Función para actualizar el estado del botón de envío
-        function updateSubmitButton() {
-            const submitButton = document.getElementById('submitButton');
-            const isFormValid = isTotalValid && isQRGenerated && isReceiptUploaded;
-            
-            if (isFormValid) {
-                submitButton.disabled = false;
-                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
-                submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-            } else {
-                submitButton.disabled = true;
-                submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-            }
-        }
-        
-        // Escuchar cambios en el monto total
-        document.getElementById('totalPedido').addEventListener('input', function(e) {
-            isTotalValid = parseFloat(e.target.value) > 0;
-            isQRGenerated = false; // Resetear cuando cambia el total
-            updateSubmitButton();
+        // Event listener para cambios en las cantidades
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('input', function() {
+                // Actualizar el total de la fila
+                actualizarTotalProducto(this);
+                // Actualizar el total general
+                actualizarTotales();
+            });
         });
-        
-        // Actualizar cuando se genera el QR
-        function onQRGenerated() {
-            isQRGenerated = true;
-            updateSubmitButton();
-        }
-        
+
         // Manejar la subida del comprobante
-        document.getElementById('comprobante').addEventListener('change', function(e) {
+        comprobanteInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
-            const comprobanteNombre = document.getElementById('comprobanteNombre');
-            
             if (file) {
-                // Validar tamaño del archivo (máximo 10MB)
-                const maxSize = 10 * 1024 * 1024; // 10MB en bytes
-                if (file.size > maxSize) {
-                    comprobanteNombre.textContent = 'El archivo es demasiado grande (máx. 10MB)';
-                    comprobanteNombre.classList.remove('text-green-600');
-                    comprobanteNombre.classList.add('text-red-600');
-                    isReceiptUploaded = false;
-                    updateSubmitButton();
-                    return;
-                }
-                
-                // Mostrar nombre del archivo
                 comprobanteNombre.textContent = `Archivo subido: ${file.name}`;
                 comprobanteNombre.classList.remove('text-red-600');
                 comprobanteNombre.classList.add('text-green-600');
-                isReceiptUploaded = true;
             } else {
                 comprobanteNombre.textContent = '';
-                isReceiptUploaded = false;
             }
-            
-            updateSubmitButton();
         });
 
-        // Función para resetear el formulario
-        function resetForm() {
-            const form = document.querySelector('form');
-            form.reset();
-            
-            // Resetear estados
-            isTotalValid = false;
-            isQRGenerated = false;
-            isReceiptUploaded = false;
-            
-            // Ocultar QR y mensajes
-            document.getElementById('qrCodeContainer').classList.add('hidden');
-            document.getElementById('qrCode').innerHTML = '';
-            document.getElementById('comprobanteNombre').textContent = '';
-            document.getElementById('comprobanteNombre').classList.add('hidden');
-            
-            // Actualizar botón
-            updateSubmitButton();
-        }
+        // Inicializar totales al cargar la página
+        actualizarTotales();
         
-        // Función para mostrar la confirmación
-        function showConfirmation() {
-            // Ocultar el formulario
-            document.querySelector('form').style.display = 'none';
-            // Mostrar mensaje de confirmación
-            const confirmacion = document.getElementById('confirmacionPedido');
-            confirmacion.classList.remove('hidden');
-            // Hacer scroll al mensaje de confirmación
-            confirmacion.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Validar el formulario antes de enviar
-        document.querySelector('form').addEventListener('submit', async function(e) {
-            e.preventDefault(); // Prevenir envío por defecto
-            
-            const totalPedido = parseFloat(document.getElementById('totalPedido').value) || 0;
-            const seniaCalculada = totalPedido * 0.33;
-            const errorDiv = document.getElementById('formError');
-            
-            // Validar que todos los campos requeridos estén completos
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('border-red-500');
-                } else {
-                    field.classList.remove('border-red-500');
+        // Función para obtener los productos del pedido
+        function getProductosDelPedido() {
+            const productos = [];
+            document.querySelectorAll('tbody tr').forEach(row => {
+                const nombre = row.querySelector('td:first-child').textContent.trim();
+                const cantidadInput = row.querySelector('.quantity-input');
+                const precioInput = row.querySelector('input[name^="precio_"]');
+                
+                if (cantidadInput && precioInput) {
+                    const cantidad = parseInt(cantidadInput.value) || 0;
+                    const precio = parseFloat(precioInput.value) || 0;
+                    
+                    if (cantidad > 0) {
+                        productos.push({
+                            name: nombre,
+                            quantity: cantidad,
+                            price: precio,
+                            total: cantidad * precio
+                        });
+                    }
                 }
             });
-            
-            // Validar que el total del pedido sea mayor a 0
-            if (totalPedido <= 0) {
-                isValid = false;
-                document.getElementById('totalPedido').classList.add('border-red-500');
-                errorDiv.classList.remove('hidden');
+            return productos;
+        }
+
+        // Referencias a los elementos del formulario
+        const submitButton = document.querySelector('button[type="submit"]');
+        const phoneInput = document.getElementById('phone');
+        const emailInput = document.getElementById('email');
+        const form = document.querySelector('form');
+        
+        // Función para validar el formato del teléfono
+        function validarTelefono(input) {
+            const telefono = input.value.trim();
+            const telefonoError = document.getElementById('telefonoError');
+            const esValido = /^11\d{8}$/.test(telefono);
+
+            if (telefono && !esValido) {
+                input.classList.add('border-red-500');
+                input.classList.remove('border-gray-300');
+                telefonoError.classList.remove('hidden');
+                return false;
             } else {
-                document.getElementById('totalPedido').classList.remove('border-red-500');
+                input.classList.remove('border-red-500');
+                input.classList.add('border-gray-300');
+                telefonoError.classList.add('hidden');
+                return true;
+            }
+        }
+
+
+        // Función para validar el formato del email
+        function validarEmail(input) {
+            const email = input.value.trim();
+            const emailError = document.getElementById('emailError');
+            const esValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            if (email && !esValido) {
+                input.classList.add('border-red-500');
+                input.classList.remove('border-gray-300');
+                emailError.classList.remove('hidden');
+                return false;
+            } else {
+                input.classList.remove('border-red-500');
+                input.classList.add('border-gray-300');
+                emailError.classList.add('hidden');
+                return true;
+            }
+        }
+
+        // Función para validar el formulario completo
+        function validarFormulario() {
+            const esTelefonoValido = validarTelefono(phoneInput);
+            const esEmailValido = validarEmail(emailInput);
+            return esTelefonoValido && esEmailValido;
+        }
+
+        // Validación en tiempo real del teléfono
+        phoneInput.addEventListener('input', function() {
+            // La validación de solo números ya se maneja con los atributos HTML
+            validarTelefono(this);
+            actualizarEstadoBoton();
+        });
+
+        // Validación en tiempo real del email
+        emailInput.addEventListener('input', function() {
+            validarEmail(this);
+            actualizarEstadoBoton();
+        });
+
+        // Validar al perder el foco
+        phoneInput.addEventListener('blur', function() {
+            validarTelefono(this);
+        });
+
+        emailInput.addEventListener('blur', function() {
+            validarEmail(this);
+        });
+
+        // Función para actualizar el estado del botón de envío
+        function actualizarEstadoBoton() {
+            const esTelefonoValido = validarTelefono(phoneInput);
+            const esEmailValido = validarEmail(emailInput);
+            const esValido = esTelefonoValido && esEmailValido;
+            
+            submitButton.disabled = !esValido;
+            submitButton.classList.toggle('bg-gray-400', !esValido);
+            submitButton.classList.toggle('cursor-not-allowed', !esValido);
+            submitButton.classList.toggle('bg-pink-500', esValido);
+            submitButton.classList.toggle('hover:bg-pink-600', esValido);
+            submitButton.classList.toggle('cursor-pointer', esValido);
+        }
+
+        // Manejador de envío del formulario
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validarFormulario()) {
+                // Ocultar mensaje de error si existe
+                const formError = document.getElementById('formError');
+                formError.classList.add('hidden');
+                
+                // Mostrar el modal de confirmación
+                document.getElementById('confirmationModal').classList.remove('hidden');
+            } else {
+                // Mostrar mensaje de error general
+                const formError = document.getElementById('formError');
+                formError.classList.remove('hidden');
+                formError.textContent = 'Por favor completa todos los campos correctamente.';
+                
+                // Desplazarse al primer error
+                const primerError = document.querySelector('.border-red-500');
+                if (primerError) {
+                    primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }
             
-            if (!isValid) {
-                errorDiv.classList.remove('hidden');
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                return;
+            const totalPedido = calcularTotalPedido();
+            const telefonoValido = validarTelefono(phoneInput);
+            
+            if (totalPedido <= 0 || !telefonoValido) {
+                document.getElementById('formError').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                if (!telefonoValido) {
+                    phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    phoneInput.focus();
+                }
+                return; // Detener la ejecución si hay errores
             }
             
-            // Aquí iría el envío real del formulario
-            try {
-                // Simular envío del formulario
-                await new Promise(resolve => setTimeout(resolve, 1000));
+            // Si todo está bien, procesar el formulario
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Procesando...';
+            
+            // Obtener los datos del pedido
+            const productos = getProductosDelPedido();
+            const seña = Math.round(totalPedido * 0.33 * 100) / 100;
+            
+            // Simular un pequeño retraso para la experiencia de usuario
+            setTimeout(() => {
+                // Codificar los datos para la URL
+                const params = new URLSearchParams();
+                params.append('total', totalPedido.toFixed(2));
+                params.append('deposit', seña.toFixed(2));
+                params.append('items', JSON.stringify(productos));
                 
-                // Mostrar confirmación
-                showConfirmation();
+                // Redirigir a la página de confirmación con los datos del pedido
+                window.location.href = `confirmacion.html?${params.toString()}`;
                 
-                // Opcional: Resetear el formulario después de mostrar la confirmación
-                // resetForm(); // Descomentar si quieres resetear el formulario después de mostrar la confirmación
-                
-                console.log('Formulario enviado correctamente');
-                console.log('Total del pedido:', formatNumber(totalPedido));
-                console.log('Seña (33%):', formatNumber(seniaCalculada));
-                
-            } catch (error) {
-                console.error('Error al enviar el formulario:', error);
-                alert('Ocurrió un error al enviar el formulario. Por favor, inténtalo de nuevo.');
-            }
+                // Restaurar el botón (por si hay algún error en la redirección)
+                setTimeout(() => {
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                }, 3000);
+            }, 1000);
         });
-    </script> <script>
-        // Espera a que el DOM esté completamente cargado antes de ejecutar el script
-        document.addEventListener('DOMContentLoaded', function() {
-            // Selecciona todos los inputs de precio y cantidad
-            const priceInputs = document.querySelectorAll('.price-input');
-            const quantityInputs = document.querySelectorAll('.quantity-input');
-            // Selecciona el elemento donde se mostrará el total general
-            const grandTotalElement = document.getElementById('grandTotal');
-
-            /**
-             * Función para calcular el total de cada fila y el total general del pedido.
-             * Se llama cada vez que un input de precio o cantidad cambia.
-             */
-            function calculateTotals() {
-                let grandTotal = 0; // Inicializa el total general
-                const rows = document.querySelectorAll('#productTableBody tr'); // Obtiene todas las filas de productos
-
-                // Itera sobre cada fila de producto
-                rows.forEach(row => {
-                    // Obtiene los inputs de precio y cantidad, y la celda donde se muestra el total de la fila actual
-                    const priceInput = row.querySelector('.price-input');
-                    const quantityInput = row.querySelector('.quantity-input');
-                    const totalCell = row.querySelector('.total-cell');
-
-                    // Parsea los valores de los inputs a números, usando 0 si no son válidos
-                    const price = parseFloat(priceInput.value) || 0;
-                    const quantity = parseInt(quantityInput.value) || 0;
-
-                    // Calcula el total de la fila
-                    const rowTotal = price * quantity;
-                    // Actualiza el texto de la celda total de la fila, formateado a dos decimales
-                    totalCell.textContent = `$${rowTotal.toFixed(2)}`;
-                    // Suma el total de la fila al total general
-                    grandTotal += rowTotal;
-                });
-
-                // Actualiza el texto del elemento del total general, formateado a dos decimales
-                grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
-            }
-
-            // Agrega un 'event listener' a cada input de precio
-            // Cuando el valor del input cambia ('input' event), se llama a calculateTotals
-            priceInputs.forEach(input => {
-                input.addEventListener('input', calculateTotals);
-            });
-
-            // Agrega un 'event listener' a cada input de cantidad
-            // Cuando el valor del input cambia ('input' event), se llama a calculateTotals
-            quantityInputs.forEach(input => {
-                input.addEventListener('input', calculateTotals);
-            });
-
-            // Realiza un cálculo inicial al cargar la página para asegurar que los totales se muestren correctamente
-            calculateTotals();
-        });
-    </script>
-</body>
-</html>
+    });
+    
+    // Función para cerrar el modal al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+        const modal = document.getElementById('confirmationModal');
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+    
+    // Manejar el envío del formulario
+    document.getElementById('pedidoForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevenir el envío predeterminado
+        
+        // Obtener los productos del pedido
+        const productos = getProductosDelPedido();
+        const totalPedido = calcularTotalPedido();
+        const seña = Math.round(totalPedido * 0.33 * 100) / 100;
+        
+        // Validar que haya al menos un producto en el pedido
+        if (productos.length === 0) {
+            alert('Por favor, agrega al menos un producto al pedido.');
+            return false;
+        }
+        
+        // Mostrar el modal de confirmación
+        const modal = document.getElementById('confirmationModal');
+        modal.classList.remove('hidden');
+        
+        // Configurar el botón de confirmar para redirigir a la página de confirmación
+        document.getElementById('confirmarPedidoBtn').onclick = function() {
+            // Codificar los datos para la URL
+            const params = new URLSearchParams();
+            params.append('total', totalPedido.toFixed(2));
+            params.append('deposit', seña.toFixed(2));
+            params.append('items', JSON.stringify(productos));
+            
+            // Redirigir a la página de confirmación con los datos del pedido
+            window.location.href = `confirmacion.html?${params.toString()}`;
+        };
+        
+        return false;
+    });
+</script>
