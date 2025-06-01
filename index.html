@@ -51,34 +51,48 @@
                             </tr>
                         </thead>
                     <tbody id="productTableBody" class="bg-white divide-y divide-gray-100">
-                        <tr data-product-id="1" class="hover:bg-gray-50 transition-colors duration-150">
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center">
-                                        <svg class="h-6 w-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="ml-4">
-                                        <div class="text-sm font-medium text-gray-900">Budín de Limón</div>
-                                    </div>
+                        <tr data-product-id="1" class="block sm:table-row bg-white rounded-xl shadow-md mb-4 sm:mb-0 sm:rounded-none sm:shadow-none p-4 sm:p-0">
+                            <!-- Producto -->
+                            <td class="px-4 py-2 sm:px-6 sm:py-4 block sm:table-cell">
+                              <span class="sm:hidden text-xs font-semibold text-gray-500">Producto</span>
+                              <div class="flex items-center mt-1 sm:mt-0">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center">
+                                  <svg class="h-6 w-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
+                                  </svg>
                                 </div>
+                                <div class="ml-4 text-sm font-medium text-gray-900">Budín de Limón</div>
+                              </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-600">1200g – 10 porciones</div>
+                          
+                            <!-- Formato -->
+                            <td class="px-4 py-2 sm:px-6 sm:py-4 block sm:table-cell">
+                              <span class="sm:hidden text-xs font-semibold text-gray-500">Formato</span>
+                              <div class="text-sm text-gray-600 mt-1 sm:mt-0">1200g – 10 porciones</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="relative">
-                                    <input type="number" step="0.01" value="15730" name="precio_budin_limon" class="price-input w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-pink-500 focus:border-transparent" readonly>
-                                </div>
+                          
+                            <!-- Precio -->
+                            <td class="px-4 py-2 sm:px-6 sm:py-4 block sm:table-cell">
+                              <span class="sm:hidden text-xs font-semibold text-gray-500">Precio</span>
+                              <input type="number" step="0.01" value="15730" name="precio_budin_limon"
+                                class="price-input mt-1 sm:mt-0 w-full sm:w-auto bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                readonly>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <input type="number" value="0" min="0" name="cantidad_budin_limon" class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-150 ease-in-out">
+                          
+                            <!-- Cantidad -->
+                            <td class="px-4 py-2 sm:px-6 sm:py-4 block sm:table-cell">
+                              <span class="sm:hidden text-xs font-semibold text-gray-500">Cantidad</span>
+                              <input type="number" value="0" min="0" name="cantidad_budin_limon"
+                                class="quantity-input mt-1 sm:mt-0 w-full sm:w-20 px-3 py-2 border border-gray-300 rounded-lg text-sm text-right focus:ring-2 focus:ring-pink-500 focus:border-transparent transition duration-150 ease-in-out">
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800">$0.00</span>
+                          
+                            <!-- Total -->
+                            <td class="px-4 py-2 sm:px-6 sm:py-4 block sm:table-cell text-right text-sm font-medium">
+                              <span class="sm:hidden text-xs font-semibold text-gray-500">Total</span>
+                              <span class="total-cell inline-block bg-gray-50 px-3 py-1 rounded-full text-gray-800 mt-1 sm:mt-0">$0.00</span>
                             </td>
-                        </tr>
+                          </tr>                          
                         <tr data-product-id="2" class="hover:bg-gray-50 transition-colors duration-150">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
@@ -261,31 +275,7 @@
                             <td id="grandTotal" class="px-6 py-4 text-right text-lg font-bold text-pink-600">$0.00</td>
                         </tr>
                     </tfoot>
-                </table>
-                
-                        <!-- Sección del Código QR -->
-                        <div id="qrCodeContainer" class="hidden bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="text-center text-lg font-medium text-gray-800 mb-4">Pago de la seña</h4>
-                            
-                            <!-- QR Code Container -->
-                            <div class="flex flex-col items-center justify-center mb-6">
-                                <p class="text-center mb-4 text-pink-700 font-medium">
-                                    <span class="text-2xl">🧁✨</span><br>
-                                    <span class="text-lg">¡Ya casi es tuyo!</span><br>
-                                    <span class="text-sm font-normal">
-                                        Para confirmar tu pedido, realizá la seña del 33% escaneando el QR que aparece abajo.<br>
-                                        Una vez realizado el pago, subí el comprobante y enviá el formulario.
-                                    </span>
-                                </p>
-                                <div id="qrCode" class="p-4 border border-gray-200 rounded-lg bg-white shadow-sm" style="width: 220px; height: 220px; display: flex; align-items: center; justify-content: center;">
-                                    <!-- QR code will be inserted here by JavaScript -->
-                                </div>
-                                <p class="mt-4 text-sm text-gray-600">
-                                    Monto de la seña: 
-                                    <span class="font-bold text-pink-600">$<span id="qrMonto">0.00</span></span>
-                                </p>
-                            </div>
-                            
+                </table>                          
                             <!-- Campo para subir comprobante -->
                             <div class="mt-6 border-t border-gray-200 pt-6">
                                 <label class="block text-sm font-medium text-gray-700 mb-3">
@@ -438,12 +428,7 @@
       
       // Actualizar los elementos que muestran el monto
       seniaDisplay.textContent = `$${formattedSenia}`;
-      totalPedidoInput.value = totalPedido;
-      
-      // Mostrar/ocultar sección de pago
-      const qrCodeContainer = document.getElementById('qrCodeContainer');
-      const qrMonto = document.getElementById('qrMonto');
-      
+      totalPedidoInput.value = totalPedido
       if (totalPedido > 0) {
         if (qrCodeContainer) qrCodeContainer.classList.remove('hidden');
         if (qrMonto) qrMonto.textContent = formattedSenia;
@@ -511,6 +496,12 @@
             <div id="formError" class="hidden mb-4 p-3 bg-red-50 text-red-700 rounded-lg">
                 <p>Por favor, completa todos los campos requeridos y verifica el monto de la seña.</p>
             </div>
+            <div class="flex items-start justify-center mb-4">
+                <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-pink-600 border-gray-300 rounded focus:ring-pink-500" required>
+                <label for="terms" class="ml-2 text-sm text-gray-700">
+                  Acepto los <a href="#" class="text-pink-600 hover:underline">términos y condiciones</a>
+                </label>
+              </div>
             <button type="submit" id="submitButton" disabled class="bg-gray-400 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out cursor-not-allowed">
                 Enviar Pedido
             </button>
@@ -746,56 +737,10 @@
 
 
         <script>
-            // Función para generar el código QR
-            function generateQRCode(amount) {
-                // Limpiar el contenedor del QR
-                const qrContainer = document.getElementById('qrCode');
-                qrContainer.innerHTML = '';
-                
-                // Crear la URL de pago con el monto
-                const paymentUrl = `https://oneinfinite.link/qr?monto=${amount}&descripcion=Pedido%20SweetArt%20Seña%20${amount}`;
-                
-                // Crear un contenedor interno para el QR
-                const qrInner = document.createElement('div');
-                qrInner.style.width = '200px';
-                qrInner.style.height = '200px';
-                qrInner.style.display = 'flex';
-                qrInner.style.alignItems = 'center';
-                qrInner.style.justifyContent = 'center';
-                qrContainer.appendChild(qrInner);
-                
-                // Generar el código QR
-                new QRCode(qrInner, {
-                    text: paymentUrl,
-                    width: 200,
-                    height: 200,
-                    colorDark: '#000000',
-                    colorLight: '#ffffff',
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-                
-                return true;
+      
             }
             
             // Variables para rastrear el estado del formulario
-            let isTotalValid = false;
-            let isQRGenerated = false;
-            let isReceiptUploaded = false;
-            
-            // Función para actualizar el estado del botón de envío
-            function updateSubmitButton() {
-                const submitButton = document.getElementById('submitButton');
-                if (isTotalValid && isQRGenerated && isReceiptUploaded) {
-                    submitButton.disabled = false;
-                    submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
-                    submitButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-                } else {
-                    submitButton.disabled = true;
-                    submitButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'hover:scale-105');
-                    submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-                }
-            }
-            
             // Función para actualizar el monto de la seña basado en el total general
             function actualizarMontoSenia() {
     const grandTotalEl = document.getElementById('grandTotal');
@@ -808,27 +753,12 @@
 
     const texto = grandTotalEl.textContent.replace(/[^\d,\.]/g, '').replace('.', '').replace(',', '.');
     const totalPedido = parseFloat(texto) || 0;
-    isTotalValid = totalPedido > 0;
-
-    if (isTotalValid) {
+    const totalPedido = parseFloat(totalPedidoInput.value) || 0;
         const senia = Math.round(totalPedido * 0.33);
         const formattedSenia = formatear(senia);
 
         if (montoSenia) montoSenia.textContent = formattedSenia;
         if (qrMonto) qrMonto.textContent = formattedSenia;
-
-        if (seniaContainer) seniaContainer.classList.remove('hidden');
-        if (seniaPlaceholder) seniaPlaceholder.classList.add('hidden');
-
-        isQRGenerated = generateQRCode(senia);
-        const qrCodeContainer = document.getElementById('qrCodeContainer');
-        if (qrCodeContainer) qrCodeContainer.classList.remove('hidden');
-    } else {
-        if (seniaContainer) seniaContainer.classList.add('hidden');
-        if (seniaPlaceholder) seniaPlaceholder.classList.remove('hidden');
-        const qrCodeContainer = document.getElementById('qrCodeContainer');
-        if (qrCodeContainer) qrCodeContainer.classList.add('hidden');
-    }
 
     updateSubmitButton();
 }
@@ -843,7 +773,6 @@
                 
                 if (file) {
                     comprobanteNombre.textContent = file.name;
-                    isReceiptUploaded = true;
                 } else {
                     comprobanteNombre.textContent = 'No se ha seleccionado ningún archivo';
                     isReceiptUploaded = false;
@@ -856,12 +785,6 @@
             function resetForm() {
                 // Resetear el formulario
                 document.querySelector('form').reset();
-                
-                // Resetear estados
-                isTotalValid = false;
-                isQRGenerated = false;
-                isReceiptUploaded = false;
-                
                 // Resetear UI
                 document.getElementById('seniaContainer').classList.add('hidden');
                 document.getElementById('seniaPlaceholder').classList.remove('hidden');
@@ -905,10 +828,11 @@
                 }
                 
                 // Validar que se haya subido un comprobante
-                if (!isReceiptUploaded) {
-                    alert('Por favor sube el comprobante de pago.');
-                    return;
-                }
+                const comprobante = document.getElementById('comprobante');
+if (!comprobante || comprobante.files.length === 0) {
+  alert('Por favor subí el comprobante de pago.');
+  return;
+
                 
                 // Si todo está bien, mostrar confirmación y resetear el formulario
                 showConfirmation();
