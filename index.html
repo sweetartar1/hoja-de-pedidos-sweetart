@@ -778,38 +778,22 @@
             }
             
             // Validar el formulario antes de enviar
-            document.querySelector('form').addEventListener('submit', async function(e) {
-                e.preventDefault(); // Prevenir envío por defecto
-                
-                // Validar que todos los campos requeridos estén completos
-                const formData = new FormData(this);
-                let isValid = true;
-                
-                // Validar campos requeridos
-                const requiredFields = ['nombre', 'telefono', 'email', 'direccion'];
-                for (const field of requiredFields) {
-                    if (!formData.get(field)) {
-                        isValid = false;
-                        break;
-                    }
-                }
-                
-                if (!isValid) {
-                    alert('Por favor completa todos los campos requeridos.');
-                    return;
-                }
-                
-                // Validar que se haya subido un comprobante
-                const comprobante = document.getElementById('comprobante');
-if (!comprobante || comprobante.files.length === 0) {
-  alert('Por favor subí el comprobante de pago.');
-  return;
+            document.querySelector('form').addEventListener('submit', function(e) {
+  const formData = new FormData(this);
+  const requiredFields = ['nombre', 'telefono', 'email', 'direccion'];
+  const comprobante = document.getElementById('comprobante');
 
-                
-                // Si todo está bien, mostrar confirmación y resetear el formulario
-                showConfirmation();
-                resetForm();
-            });
+  // Validar campos requeridos
+  const faltanCampos = requiredFields.some(field => !formData.get(field)?.trim());
+  if (faltanCampos || !comprobante || comprobante.files.length === 0) {
+    e.preventDefault(); // Solo prevenís si hay error
+    alert('Por favor completá todos los campos obligatorios y subí el comprobante.');
+    return;
+  }
+
+  // Si todo está OK, el formulario se envía automáticamente a Formspree
+});
+
         </script>
     </script>
 </body>
