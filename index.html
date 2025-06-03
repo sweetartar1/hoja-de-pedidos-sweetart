@@ -778,20 +778,26 @@
             }
             
             // Validar el formulario antes de enviar
-            document.querySelector('form').addEventListener('submit', function(e) {
-  const formData = new FormData(this);
+            document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
   const requiredFields = ['nombre', 'telefono', 'email', 'direccion'];
   const comprobante = document.getElementById('comprobante');
 
-  // Validar campos requeridos
-  const faltanCampos = requiredFields.some(field => !formData.get(field)?.trim());
-  if (faltanCampos || !comprobante || comprobante.files.length === 0) {
-    e.preventDefault(); // Solo prevenís si hay error
-    alert('Por favor completá todos los campos obligatorios y subí el comprobante.');
-    return;
-  }
+  form.addEventListener('submit', function(e) {
+    const formData = new FormData(this);
+    const faltanCampos = requiredFields.some(field => !formData.get(field)?.trim());
 
-  // Si todo está OK, el formulario se envía automáticamente a Formspree
+    if (faltanCampos || !comprobante || comprobante.files.length === 0) {
+      e.preventDefault();
+      alert('Por favor completá todos los campos obligatorios y subí el comprobante.');
+      return;
+    }
+
+    // ✅ Si todo está OK, dejamos que se envíe y luego redirigimos
+    setTimeout(() => {
+      window.location.href = 'gracias.html';
+    }, 500);
+  });
 });
 
         </script>
