@@ -677,36 +677,41 @@
                 }
                 
                 // Validar formulario al enviar
-                const formulario = document.querySelector('form');
-                if (formulario) {
-                    formulario.addEventListener('submit', function(e) {
-                        if (!validarFormulario()) {
-                            e.preventDefault();
-                            const primerError = this.querySelector('.border-red-500');
-                            if (primerError) {
-                                primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            }
-                        } else {
-                            // Mostrar confirmación
-                            const confirmacion = document.getElementById('confirmacionPedido');
-                            if (confirmacion) {
-                                e.preventDefault();
-                                this.style.display = 'none';
-                                confirmacion.classList.remove('hidden');
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                                
-                                // Aquí podrías agregar el envío del formulario vía AJAX
-                                // this.submit();
-                            }
-                        }
-                    });
-                }
                 
-                // Calcular totales iniciales
-                actualizarTotales();
             });
         </script>
-
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('form');
+      const requiredFields = ['nombre', 'telefono', 'email', 'direccion'];
+      const comprobante = document.getElementById('comprobante');
+      const confirmacion = document.getElementById('confirmacionPedido');
+    
+      form.addEventListener('submit', function(e) {
+        const formData = new FormData(this);
+        const faltanCampos = requiredFields.some(field => !formData.get(field)?.trim());
+    
+        if (faltanCampos || !comprobante || comprobante.files.length === 0) {
+          e.preventDefault();
+          alert('Por favor completá todos los campos obligatorios y subí el comprobante.');
+          return;
+        }
+    
+        // ✅ Mostrar mensaje visual
+        if (confirmacion) {
+          confirmacion.classList.remove('hidden');
+          form.style.display = 'none';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    
+        // ✅ Dejar que Formspree lo envíe normalmente y redirigir
+        setTimeout(() => {
+          window.location.href = 'gracias.html';
+        }, 1500);
+      });
+    });
+    </script>
+    
 
         <script>
       
